@@ -20,14 +20,14 @@ jobs:
           java-version: '17'
           distribution: 'microsoft'
 
-      - name: Build backend with Maven
+      - name: Build Spring Boot backend with Maven
         working-directory: task-manager-backend
         run: mvn clean package -DskipTests
 
       - name: Upload JAR artifact
         uses: actions/upload-artifact@v4
         with:
-          name: springboot-jar
+          name: java-app
           path: task-manager-backend/target/*.jar
 
   deploy:
@@ -42,14 +42,14 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: springboot-jar
+          name: java-app
 
-      - name: Azure login
+      - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_67DE49E4F35A490FBF92DB09D1B9F998 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_EDB87894775649F6BA5904DE99A507A9 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_239269C7C38E4EC4BC4A06D15ABF4B12 }}
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3

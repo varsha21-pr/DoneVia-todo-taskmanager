@@ -1,0 +1,93 @@
+
+.nav {
+  height: 64px;
+  background: #0f172a;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.links a {
+  color: #cbd5f5;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+.links .active {
+  color: #ffffff;
+}
+
+.auth-wrap {
+  min-height: calc(100vh - 64px);
+  background: #d4aac8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.card {
+  width: 360px;
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+.card input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  outline: none;
+}
+
+.card button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  background: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+body.dark-theme {
+  background: #0f172a;
+  color: #e5e7eb;
+}
+
+body.dark-theme .card {
+  background: #1e293b;
+  color: #e5e7eb;
+}
+
+body.dark-theme input {
+  background: #1f334e;
+  color: rgb(223, 213, 213);
+  border: 1px solid #475569;
+}
+
+body.dark-theme button {
+  background: #6366f1;
+}
+
+small {
+  color: #dc2626;
+  font-size: 12px;
+}

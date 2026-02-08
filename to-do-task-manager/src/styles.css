@@ -1,0 +1,76 @@
+/* You can add global styles to this file, and also import other style files */
+/* ===== DARK THEME ===== */
+body.dark-theme {
+    background-color: #0f172a;
+    color: #e5e7eb;
+  }
+  
+  body.dark-theme .nav {
+    background: #020617;
+  }
+  
+  body.dark-theme .card {
+    background: #020617;
+    color: #e5e7eb;
+  }
+  
+  body.dark-theme input {
+    background: #020617;
+    color: #e5e7eb;
+    border: 1px solid #334155;
+  }
+  
+  body.dark-theme button {
+    background: #2563eb;
+    color: white;
+  }
+  
+  /* ===== LIGHT THEME (default) ===== */
+  body {
+    background-color: #ede9fe;
+  }
+
+  body {
+    background: #f8fafc;
+    color: #0f172a;
+  }
+  
+  body.dark-theme {
+    background: #0f172a;
+    color: #e5e7eb;
+  }
+  
+  body.dark-theme .nav {
+    background: #020617;
+  }
+  
+  body.dark-theme .card {
+    background: #1e293b;
+    color: #e5e7eb;
+  }
+  
+  body.dark-theme input,
+  body.dark-theme select {
+    background: #020617;
+    color: #e5e7eb;
+    border: 1px solid #334155;
+  }
+  
+  body.dark-theme .stats {
+    background: #022c22;
+    color: #bbf7d0;
+    border: 1px solid #16a34a;
+  }
+  
+  body.dark-theme .task {
+    background: #020617;
+    border: 1px solid #334155;
+  }
+  
+  body.dark-theme button.primary {
+    background: #2563eb;
+  }
+  
+  body.dark-theme .logout {
+    background: #7f1d1d;
+  }

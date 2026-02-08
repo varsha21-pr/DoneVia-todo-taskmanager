@@ -1,0 +1,83 @@
+<div class="container">
+  <button class="theme-toggle" (click)="toggleTheme()">
+    🌙
+  </button>
+  <div class="header">
+    <p>Welcome,{{userName}}</p>
+    <h2>My Tasks</h2>
+    <button class="logout" (click)="logout()">Logout</button>
+  </div>
+  <div class="stats">
+    <span>Total: {{ getTotalTasks() }}</span>
+    <span>Completed: {{ getCompletedTasks() }}</span>
+    <span>Pending: {{ getPendingTasks() }}</span>
+    <span>Overdue: {{ getOverdueTasks() }}</span>
+  </div>
+
+  <div class="card">
+    <input
+      type="text"
+      placeholder="Search task by title..."
+      [(ngModel)]="searchText"
+    />
+  
+    <select [(ngModel)]="filterStatus">
+      <option value="ALL">All</option>
+      <option value="PENDING">Pending</option>
+      <option value="COMPLETED">Completed</option>
+    </select>
+  </div>
+
+  
+  <div class="card">
+    <input [(ngModel)]="newTask.title" placeholder="Title">
+    <input [(ngModel)]="newTask.description" placeholder="Description">
+    <label>Due Date</label>
+    <input type="date" [(ngModel)]="newTask.dueDate" [min]="today">
+    <button class="primary" (click)="addTask()">Add Task</button>
+  </div>
+
+  
+  <div class="task-list">
+    <div class="task" *ngFor="let task of getFilteredTasks()">
+      <div>
+        <h4 [class.done]="task.status === 'COMPLETED'">
+          {{ task.title }}
+        </h4>
+        <p>{{ task.description }}</p>
+        <small>{{ task.dueDate }}</small>
+
+        <div class="warning overdue" *ngIf="isOverdue(task.dueDate)">
+          Overdue
+        </div>
+        <div class="warning today" *ngIf="isDueToday(task.dueDate)">
+          Due Today
+        </div>
+        <div class="warning tomorrow" *ngIf="isDueTomorrow(task.dueDate)">
+          Due Tomorrow
+        </div>
+      </div>
+
+      <div class="actions">
+        <button (click)="toggleStatus(task)">
+          {{ task.status === 'PENDING' ? 'Complete' : 'Undo' }}
+        </button>
+        <button (click)="editTask(task)">Edit</button>
+        <button class="danger" (click)="deleteTask(task.taskId)">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="card edit-card" id="'edit-section" *ngIf="editingTask">
+    <h3>Edit Task</h3>
+    <input [(ngModel)]="editingTask.title">
+    <input [(ngModel)]="editingTask.description">
+    <input type="date" [(ngModel)]="editingTask.dueDate">
+    <select [(ngModel)]="editingTask.status">
+      <option value="PENDING">PENDING</option>
+      <option value="COMPLETED">COMPLETED</option>
+    </select>
+    <button class="primary" (click)="updateTask()">Update</button>
+  </div>
+</div>

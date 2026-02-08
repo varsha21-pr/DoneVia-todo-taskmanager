@@ -1,0 +1,133 @@
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 16px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.theme-toggle {
+  position: fixed;
+  top: 14px;
+  right: 20px;
+
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+
+  z-index: 1000;
+}
+:host {
+  display: block;
+  min-height: 100vh;
+  background: #b6ade6;
+  padding: 20px;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  margin: 20px 0;
+  background: #b3e981;
+  border-radius: 10px;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.stats span {
+  white-space: nowrap;
+}
+
+.logout {
+  margin-left: 20px;
+  background: #4b3333;
+  color: white;
+}
+
+.card {
+  background: #fff;
+  padding: 16px;
+  margin: 16px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(233, 133, 133, 0.1);
+}
+
+input,
+select {
+  width: 100%;
+  margin: 6px 0;
+  padding: 8px;
+}
+
+button {
+  margin-top: 8px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.primary {
+  background: #1976d2;
+  color: white;
+}
+
+.danger {
+  background: #d32f2f;
+  color: white;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  background: #f9f9f9;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+}
+
+.actions button {
+  margin-left: 5px;
+}
+
+.done {
+  text-decoration: line-through;
+  color: green;
+}
+
+.warning {
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.overdue {
+  color: red;
+  font-weight: bold;
+}
+
+.today {
+  color: orange;
+  font-weight: bold;
+}
+
+.tomorrow {
+  color: blue;
+  font-weight: bold;
+}
+
+.edit-card {
+  border: 2px solid #1976d2;
+  background: #f4f8ff;
+}
+
+@media (max-width: 600px) {
+  .task {
+    flex-direction: column;
+  }
+}

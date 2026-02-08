@@ -1,0 +1,67 @@
+<nav class="nav">
+    <div class="logo">DoneVia</div>
+    <div class="links">
+      <a routerLink="/login">Login</a>
+      <a class="active">Register</a>
+    </div>
+  </nav>
+  
+  <div class="auth-wrap">
+    <form class="card" #regForm="ngForm" (ngSubmit)="register()" novalidate>
+  
+      <h2>Create Account</h2>
+      <p class="subtitle">Register to manage your tasks</p>
+  
+      <label>Full Name</label>
+      <input
+        name="name"
+        placeholder="Enter your name"
+        [(ngModel)]="name"
+        required
+        minlength="3"
+        #nameRef="ngModel"
+      />
+      <small class="error" *ngIf="nameRef.invalid && nameRef.touched">
+        Name must be at least 3 characters
+      </small>
+  
+    
+      <label>Email Address</label>
+      <input
+        name="email"
+        placeholder="example@gmail.com"
+        [(ngModel)]="email"
+        required
+        email
+        pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$"
+        #emailRef="ngModel"
+      />
+      <small class="error" *ngIf="emailRef.invalid && emailRef.touched">
+        Only valid <b>@gmail.com</b> emails are allowed
+      </small>
+  
+      <label>Password</label>
+      <input
+        type="password"
+        name="password"
+        placeholder="Minimum 6 characters"
+        [(ngModel)]="password"
+        required
+        minlength="6"
+        #passRef="ngModel"
+      />
+      <small class="error" *ngIf="passRef.invalid && passRef.touched">
+        Password must be at least 6 characters
+      </small>
+  
+      <button type="submit" [disabled]="regForm.invalid">
+        Register
+      </button>
+  
+      <p class="footer">
+        Already have an account?
+        <a routerLink="/login">Login</a>
+      </p>
+  
+    </form>
+  </div>

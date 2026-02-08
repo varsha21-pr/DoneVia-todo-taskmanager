@@ -1,0 +1,26 @@
+<nav class="nav">
+  <div class="logo">DoneVia</div>
+  <div class="links">
+    <a class="active">Login</a>
+    <a routerLink="/register">Register</a>
+  </div>
+</nav>
+<button class="theme-btn" (click)="toggleTheme()">
+  {{ isDarkMode ? '☀️' : '🌙' }}
+</button>
+<div class="auth-wrap">
+
+  <form class="card login-card" #loginForm="ngForm" (ngSubmit)="login(loginForm)" novalidate>
+
+    <h2>Welcome Back</h2>
+
+    <input type="email" name="email" placeholder="Email" [(ngModel)]="email" #emailRef="ngModel" required email />
+    <small *ngIf="emailRef.invalid && emailRef.touched">Valid email required</small>
+
+    <input type="password" name="password" placeholder="Password" [(ngModel)]="password" #passRef="ngModel" required
+      minlength="6" />
+    <small *ngIf="passRef.invalid && passRef.touched">Min 6 characters</small>
+
+    <button type="submit" [disabled]="loginForm.invalid">Login</button>
+  </form>
+</div>

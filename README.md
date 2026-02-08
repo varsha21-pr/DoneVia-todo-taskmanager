@@ -92,12 +92,12 @@ The frontend is built using Angular, while the backend is implemented using Spri
 9. http://localhost:4200
 
 ### Docker & Deployment
-Dockerfile is created to containerize the Spring Boot backend
-Docker image is built locally
-Docker container runs the backend application
-The container is deployed to Azure Container Instances
+1.Dockerfile is created to containerize the Spring Boot backend
+2.Docker image is built locally
+3.Docker container runs the backend application
+4.The container is deployed to Azure Container Instances
 
 ### Future Enhancements
-JWT-based authentication
-Role-based authorization
-CI/CD pipeline using Jenkins
+1.JWT-based authentication
+2.Role-based authorization
+3.CI/CD pipeline using Jenkins

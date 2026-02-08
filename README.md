@@ -87,10 +87,9 @@ The frontend is built using Angular, while the backend is implemented using Spri
 
 5. ### Frontend
 6. Navigate to angular project directory
-7. Run:
-8. ```bash ng serve
-9.open browser
-10. http://localhost:4200
+7. Run: ng serve
+8. open browser
+9. http://localhost:4200
 
 ### Docker & Deployment
 Dockerfile is created to containerize the Spring Boot backend

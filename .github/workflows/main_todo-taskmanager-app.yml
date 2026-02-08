@@ -1,4 +1,4 @@
-name: Build and deploy JAR app to Azure Web App - todo-taskmanager-app
+name: Build and deploy Spring Boot app to Azure Web App
 
 on:
   push:
@@ -9,47 +9,43 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: Set up Java version
+      - name: Set up Java 17
         uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'microsoft'
 
-      - name: Build with Maven
-        run: mvn clean install
+      - name: Build backend with Maven
+        run: mvn clean package -DskipTests
         working-directory: backend
 
-      - name: Upload artifact
+      - name: Upload JAR artifact
         uses: actions/upload-artifact@v4
         with:
-          name: java-app
+          name: springboot-app
           path: backend/target/*.jar
 
   deploy:
     runs-on: ubuntu-latest
     needs: build
-    permissions:
-      id-token: write
-      contents: read
 
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: java-app
+          name: springboot-app
 
-      - name: Login to Azure
+      - name: Azure Login
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_67DE49E4F35A490FBF92DB09D1B9F998 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_EDB87894775649F6BA5904DE99A507A9 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_239269C7C38E4EC4BC4A06D15ABF4B12 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID }}
 
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
